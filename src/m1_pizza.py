@@ -37,7 +37,7 @@ def main():
 def run_test_generate_points_on_circle():
     """ Tests the   generate_points_on_circle   function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  generate_points_on_circle  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test (that YOU write).
     #
@@ -67,13 +67,13 @@ def run_test_generate_points_on_circle():
     # ------------------------------------------------------------------
     # Test 2:  (YOU write THIS test)
     # ------------------------------------------------------------------
-    expected = [rg.Point(250.0, 10.0),  # All numbers are approximate.
-                rg.Point(225.0, 53.3),
-                rg.Point(175.0, 53.3),
-                rg.Point(15.0,10.0),
-                rg.Point(175.0, -33.3),
-                rg.Point(112.5, 28.3)]
-    circle = rg.Circle(rg.Point(225.0, 1-33.0), 50)
+    expected = [rg.Point(250.0, 100.0),  # All numbers are approximate.
+                rg.Point(225.0, 143.3),
+                rg.Point(175.0, 143.3),
+                rg.Point(150.0,100.0),
+                rg.Point(175.0, 56.7),
+                rg.Point(225.0, 56.7)]
+    circle = rg.Circle(rg.Point(200, 100), 50)
     answer = generate_points_on_circle(circle, 6)
 
     print('Expected:', expected)
@@ -448,7 +448,7 @@ def polygon(window, circle, number_of_segments, color, thickness):
 def run_test_fancy_polygon():
     """ Tests the   fancy_polygon   function. """
     # ------------------------------------------------------------------
-    # TODO: 9. Implement this TEST function.
+    # DONE: 9. Implement this TEST function.
     #   It TESTS the   fancy_polygon   function defined below.
     #   Include at least ** 1 ** ADDITIONAL test (that YOU write).
     #
@@ -493,12 +493,13 @@ def run_test_fancy_polygon():
     #   For all these, filling the circles with one color and using
     #   a contrasting color for the lines makes them especially pretty.
     # ------------------------------------------------------------------
-    title = "FANCY POLYGON test 3:  20 lime green lines on blue circle, hops = 7."
+    title = "FANCY POLYGON test 4:  10 orange lines on blue circle, " \
+            "hops = 4."
     window = rg.RoseWindow(480, 350, title)
 
     circle = rg.Circle(rg.Point(240, 165), 150)
     circle.fill_color = 'blue'
-    fancy_polygon(window, circle, 20, 7, 'lime green', 5)
+    fancy_polygon(window, circle, 10, 8, 'orange', 4)
     window.close_on_mouse_click()
 
 def fancy_polygon(window, circle, number_of_lines, hops_to_next_point, color, thickness):
