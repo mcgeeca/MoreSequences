@@ -31,7 +31,7 @@ def main():
     run_test_draw_points_on_circle()
     run_test_pizza()
     run_test_polygon()
-    # run_test_fancy_polygon()
+    run_test_fancy_polygon()
 
 
 def run_test_generate_points_on_circle():
@@ -520,7 +520,7 @@ def fancy_polygon(window, circle, number_of_lines, hops_to_next_point, color, th
       :type thickness:       int
     """
     # ------------------------------------------------------------------
-    # TODO: 10. Implement and test this function.
+    # DONE: 10. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPLEMENTATION REQUIREMENT:
@@ -536,10 +536,10 @@ def fancy_polygon(window, circle, number_of_lines, hops_to_next_point, color, th
     circle.attach_to(window)
     points_for_circle = generate_points_on_circle(circle, number_of_lines)
     for k in range(number_of_lines):
-        if k != number_of_lines - 1:
-            new_polygon = rg.Line(points_for_circle[k], points_for_circle[k + 1])
+        if k + hops_to_next_point <= number_of_lines - 1:
+            new_polygon = rg.Line(points_for_circle[k], points_for_circle[k + hops_to_next_point])
         else:
-            new_polygon = rg.Line(points_for_circle[k], points_for_circle[0])
+            new_polygon = rg.Line(points_for_circle[k], points_for_circle[k-(number_of_lines - hops_to_next_point)])
         new_polygon.color = color
         new_polygon.thickness = thickness
         new_polygon.attach_to(window)
